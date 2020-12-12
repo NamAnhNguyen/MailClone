@@ -63,11 +63,15 @@ public class EmailLayoutAdapter extends BaseAdapter {
         viewHolder.subject.setText(item.subject);
         viewHolder.content.setText(item.content);
         viewHolder.time.setText(item.time);
+        if (item.checked) {
+            viewHolder.checkBox.setBackgroundResource(R.drawable.star_foreground);
+        } else {
+            viewHolder.checkBox.setBackgroundResource(R.drawable.grey_star_foreground);
+        } ;
 
         viewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.v("click", "olalsdjansjdnaksndkan");
                 boolean check = item.checked;
                 item.checked = !check;
                 if (check)

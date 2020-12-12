@@ -8,12 +8,12 @@ public class Email {
     public String avatar;
     public boolean checked;
 
-    public Email(String email, String subject, String content, String time, String avatar, boolean checked) {
+    public Email(String email, String subject, String content, String time, boolean checked) {
         this.email = email;
         this.content = content;
         this.subject = subject;
         this.time = time;
-        this.avatar = avatar;
+        this.avatar = Character.toString(email.charAt(0)).toUpperCase();
         this.checked = checked;
     }
 }
