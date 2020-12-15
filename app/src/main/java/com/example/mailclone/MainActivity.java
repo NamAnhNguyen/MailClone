@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -48,15 +49,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listView = (ListView) findViewById(R.id.list_item);
-        registerForContextMenu(listView);
         listView.setLongClickable(true);
+
         items = new ArrayList<Email>();
         for (int i = 0; i < 10; i++) {
             items.add(new Email(faker.internet.email(), faker.lorem.sentence(), faker.lorem.paragraph(2), f.format(faker.date.forward()), faker.bool.bool()));
         }
         EmailLayoutAdapter adapter = new EmailLayoutAdapter(items, this);
+
         ctx = this;
         listView.setAdapter(adapter);
+        registerForContextMenu(listView);
         actionBar = getActionBar();
 
     }
